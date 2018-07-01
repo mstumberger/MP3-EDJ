@@ -1,10 +1,10 @@
 #-*- coding: utf-8 -*-
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-# from PyQt4 import uic               # library that allowes the use of .ui GUI from QtDesigner
+from PyQt4 import uic               # library that allowes the use of .ui GUI from QtDesigner
 # resource C:\Python27\Lib\site-packages\PyQt4\pyrcc4.exe -o play_rc.py play.qrc
 # compile  pyuic4 -o gui.py MP3EDJ.ui
-from gui import Ui_MainWindow     # compiled GUI
+# from gui import Ui_MainWindow     # compiled GUI
 from PyQt4.phonon import Phonon
 import sys, os, shutil, subprocess
 import time
@@ -51,9 +51,10 @@ notCapital = ["1","2","3","4","5","6","7","8","9",
 class EDJ(QMainWindow):
     def __init__(self, parent= None):
         super(EDJ, self).__init__(parent)
-        self.dlg = Ui_MainWindow()
-        # self.dlg = uic.loadUi("MP3EDJ.ui")
-        self.dlg.setupUi(self)
+        # self.dlg = Ui_MainWindow()
+        # self.dlg.setupUi(self)
+        self.dlg = uic.loadUi("MP3EDJ.ui")
+        self.dlg.show()
         self.dlg.actionMusic.setChecked(True)
         self.dlg.statusbar.showMessage("Izberi datoteke ali mapo")
         self.work= Work()
@@ -606,7 +607,7 @@ class Work(QThread):    # multi thread
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     form = EDJ()
-    form.show()
+    # form.show()
     app.exec_()
 
 # Functions for windows version
