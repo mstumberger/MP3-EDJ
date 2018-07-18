@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4 import uic               # library that allowes the use of .ui GUI from QtDesigner
@@ -169,7 +169,7 @@ class EDJ(QMainWindow):
         self.dlg.progressBar.setMaximum(max)
 
     def message(self, text):
-        QMessageBox.information(self, "Sporocilo", text)
+        QMessageBox.information(self, "Sporocilo", text, 0)
         self.dlg.progressBar.setValue(0)
 
     def refresh(self):
